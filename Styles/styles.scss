@@ -1,0 +1,211 @@
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+
+@mixin flexbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin basics($width,$color,$fontw,$fonts){
+    width: $width;
+    color: $color;
+    font-weight: $fontw;
+    font-size: $fonts;
+    margin: 0;
+}
+
+%product{ 
+    text-align: center;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+body{
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+    @include basics(100%, #999, 300, 15px);
+
+    header{
+        @include basics(100%, #999, 300, 15px);
+        background-color: #129bc5;
+        padding: 20px 50px;
+        @include flexbox;
+        align-items: center;
+        box-sizing: border-box;
+    
+        .header__logo{
+            width: 50px;
+        }
+    
+        .header__nav{
+            @include flexbox;
+            gap: 20px;
+    
+            .header__icon{
+                width: 50px;
+                cursor: pointer;
+                display: inline-block;
+            }
+        }    
+    }
+
+    main{
+        .banner{
+            @include basics(100%, $white, 600, 25px);
+            padding: 60px 0;
+            text-align: center;
+            background-image: url("../img/banner.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: 40%;
+    
+            .banner__title{
+                margin: 10px;
+            }
+            
+            .banner__text{
+                margin: 0;
+                opacity: 0.7;
+            }
+        }
+    
+        .products{
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+            .products__item{
+                @extend %product;
+    
+                .products__img{
+                    height: 180px;
+                    width: 200px;
+                    margin-bottom: 15px;
+                    cursor: pointer;
+                }
+                
+                .products__price{
+                    font-weight: 300;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .cart{
+            @include basics(500px, $black, 600, 20px);
+            background-color: $white;
+            padding: 25px;
+            box-sizing: border-box;
+            height: 100%;
+            position: fixed;
+            right: -100%;
+            top: 100px;
+            box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.30);
+        
+            .cart__items{
+                border-bottom: 1px solid #333;
+                @include flexbox;
+                align-items: center;
+                padding: 15px;
+                box-sizing: border-box;
+
+                .cart__item{
+                    width: 100%;
+                    text-align: center;
+                    padding: 25px 0;
+                    box-sizing: border-box;
+                    font-weight: 300;
+                }
+
+                .cart__price{
+                    font-weight: 300;
+                }
+
+                .cart__img{
+                    width: 60px;
+                }
+                
+                .cart__remove{
+                    width: 30px;
+                    cursor: pointer;
+                }
+            } 
+        }        
+    }
+}
+
+@media (max-width: 820px){
+    .header{
+        padding: 15px;
+    }
+
+    .products{
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+
+    }
+
+    .products__img{
+        width: 150px;
+    }
+
+    .cart{
+        width: 400px;
+        top: 80px;
+    }
+}
+
+@media (max-width: 480px){
+    .banner{
+        padding: 30px 0;
+    }
+
+    .banner__title{
+        font-size: 18px;
+    }
+
+    .banner__text{
+        font-size: 16px;
+    }
+
+    .products{
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .products__img{
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .products__title,
+    .products__price{
+        padding: 0 10px;
+        
+    }
+
+    .cart{
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .cart__title{
+        padding: 15px 0;
+    }
+
+    .cart__items{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart__img{
+        width: 100px;
+    }
+
+    .cart__item,
+    .cart__price{
+        margin: 0;
+    }
+}
