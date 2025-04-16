@@ -7,18 +7,18 @@ body main .products .products__item {
 body {
   font-family: "Lexend", Arial, Helvetica, sans-serif;
   width: 100%;
-  color: #999;
+  color: #d5cccc;
   font-weight: 300;
   font-size: 15px;
   margin: 0;
 }
 body header {
   width: 100%;
-  color: #999;
+  color: #d5cccc;
   font-weight: 300;
   font-size: 15px;
   margin: 0;
-  background-color: #129bc5;
+  background-color: #1fcdc1;
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@ body main .cart {
   box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
 }
 body main .cart .cart__items {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #181818;
   display: flex;
   justify-content: space-between;
   align-items: center;
