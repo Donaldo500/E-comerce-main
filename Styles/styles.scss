@@ -22,11 +22,11 @@ $black: rgb(0, 0, 0);
 
 body{
     font-family: "Lexend", Arial, Helvetica, sans-serif;
-    @include basics(100%, #999, 300, 15px);
+    @include basics(100%, #d5cccc, 300, 15px);
 
     header{
-        @include basics(100%, #999, 300, 15px);
-        background-color: #129bc5;
+        @include basics(100%, #d5cccc, 300, 15px);
+        background-color: #1fcdc1;
         padding: 20px 50px;
         @include flexbox;
         align-items: center;
@@ -105,7 +105,7 @@ body{
             box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.30);
         
             .cart__items{
-                border-bottom: 1px solid #333;
+                border-bottom: 1px solid #181818;
                 @include flexbox;
                 align-items: center;
                 padding: 15px;
